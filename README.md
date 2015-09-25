@@ -1,53 +1,25 @@
 # Empty
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Demonstrates an "Error: Called stop() outside of a test context" error when
+attempting to authenticate using Firebase/torii in an Ember acceptance test. The
+code tracks closely to the example provided at:
 
-## Prerequisites
+https://www.firebase.com/docs/web/libraries/ember/guide.html#section-authentication
 
-You will need the following things properly installed on your computer.
+The Firebase App "empty.firebaseIO.com" is empty except that Email & Password
+authentication is enabled and there is a user with email address
+"user@example.com" and password "validPassword".
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+## Recreating Behavior
 
-## Installation
+Attempt to login in the development environment (i.e., http://localhost:4200)
+with username "user@example.com" and password "validPassword". This should
+transition you to the "projects" route. An acceptance test attempting to
+recreate the same behavior fails, however. Phantom JS 2.0 shows that
+the currentUrl() remains "/signin" when "/projects" was expected. Running the
+acceptance test in Safari or Chrome, however, shows an additional error message
+from JSHint - unit/routes: global failure":
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
-
-## Running / Development
-
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+  Error: Called stop() outside of a test context
+  Source: http://localhost:7357/assets/vendor.js:91318
 
