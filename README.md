@@ -18,8 +18,8 @@ transition you to the "projects" route. An acceptance test attempting to
 recreate the same behavior fails, however. Phantom JS 2.0 shows that
 the currentUrl() remains "/signin" when "/projects" was expected. Running the
 acceptance test in Safari or Chrome, however, shows an additional error message
-from JSHint - unit/routes: global failure":
+from JSHint - unit/routes: global failure:
 
-  Error: Called stop() outside of a test context
-  Source: http://localhost:7357/assets/vendor.js:91318
+    Error: Called stop() outside of a test context
+    Source: http://localhost:7357/assets/vendor.js:91318
 
