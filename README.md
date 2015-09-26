@@ -1,7 +1,7 @@
 # Empty
 
 Demonstrates an "Error: Called stop() outside of a test context" error when
-attempting to authenticate using Firebase/torii in an Ember acceptance test. The
+attempting to authenticate using Firebase/Torii in an Ember acceptance test. The
 code tracks closely to the example provided at:
 
 https://www.firebase.com/docs/web/libraries/ember/guide.html#section-authentication
@@ -23,3 +23,16 @@ from JSHint - unit/routes: global failure:
     Error: Called stop() outside of a test context
     Source: http://localhost:7357/assets/vendor.js:91318
 
+The the console in the developer tools also shows the following message:
+
+    FIREBASE WARNING: Exception was thrown by user callback. Error: Called stop() outside of a test context
+        at Object.extend.stop (http://localhost:7357/assets/test-support.js:3000:10)
+        at exports.default._emberTestingAdaptersAdapter.default.extend.asyncStart (http://localhost:7357/assets/vendor.js:52454:13)
+        at asyncStart (http://localhost:7357/assets/vendor.js:43110:47)
+        at Object.async (http://localhost:7357/assets/vendor.js:43124:7)
+        at fulfill (http://localhost:7357/assets/vendor.js:66638:22)
+        at handleMaybeThenable (http://localhost:7357/assets/vendor.js:66598:9)
+        at resolve (http://localhost:7357/assets/vendor.js:66611:7)
+        at resolvePromise (http://localhost:7357/assets/vendor.js:66755:9)
+        at http://localhost:7357/assets/vendor.js:100968:15
+        at http://localhost:7357/assets/vendor.js:91327:20 
