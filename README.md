@@ -23,7 +23,7 @@ from JSHint - unit/routes: global failure:
     Error: Called stop() outside of a test context
     Source: http://localhost:7357/assets/vendor.js:91318
 
-The the console in the developer tools also shows the following message:
+The console in the developer tools also shows the following message:
 
     FIREBASE WARNING: Exception was thrown by user callback. Error: Called stop() outside of a test context
         at Object.extend.stop (http://localhost:7357/assets/test-support.js:3000:10)
